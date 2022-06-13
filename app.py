@@ -13,7 +13,7 @@ def main():
     st.title("Face Emotion detection")
     
     #Available function in the web app
-    activities = ["Homepage", "Deep learning with webcam", "Deep learning with picture"]
+    activities = ["Home", "Detection with webcam", "Detection with picture"]
     choice = st.sidebar.selectbox("Select the required activty to navigate.", activities)
 
     #Navigating to Homepage
@@ -22,15 +22,13 @@ def main():
       home()
 
     #Navigating to face emotion detction with pre=trained deep learning model on live web-cam            
-    if choice == "Deep learning with webcam":
+    if choice == "Detection with webcam":
 
-      st.text('Select the respective devices for webcam and microphone(Allow access to camera and microphone if asked).')
-      st.text('Press START to start face emotion detection and STOP for stopping the detection.')
-      st.text('If the webcam is not opening then, Try pressing START and STOP and relaunching the tab sometimes as it may take some time to open the webcam in some cases. ')
+      st.text('Click on start to start detecting')
       webrtc_streamer(key="exam", video_transformer_factory=VideoTransformer)
 
-    #Navigating to face emotion detction with pre=trained deep learning model on picture            
-    if choice == "Deep learning with picture":
+    #Navigating to face emotion detction on pictures uploaded by users            
+    if choice == "Detection with picture":
 
       #Uploading the image
       image_file = st.file_uploader("Upload the image", type=['jpeg', 'png', 'jpg'])
